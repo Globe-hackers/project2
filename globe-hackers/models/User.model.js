@@ -8,22 +8,23 @@ const userSchema = new Schema(
       unique: [true, 'This username is already taken'],
       required: true,
     },
-    passwordHash: {
+    password: {
       type: String,
-      required : [true, "Password is required"],
+      required: [true, "Password is required"],
     },
     country: {
       type: String,
       required: [true, 'You need to tell us where you come from :)']
     },
     experience: {
+      type: String,
       enum: ["newbie", "intermediate", "advanced"],
       required: [true, "please tell us what is your traveler's experience"],
     },
   },
-    {
+  {
     timestamps: true,
-    }
+  }
 );
 
 const User = model("User", userSchema);

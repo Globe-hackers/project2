@@ -8,12 +8,12 @@ const tipSchema = new Schema(
     },
     city: {
       type: String,
-      required: [true, "Please tell us in what city you found this hack"]
+      required: [true, "Please tell us in what city you found this hack"],
     },
     category: {
       type: String,
       required: [true, "Please tell us in what category this hack falls into"],
-      enum: ["restaurant","leisure","bar","museum","sport","sight-seeing","night"]
+      enum: ["restaurant","leisure","bar","museum","sport","sight-seeing","night"],
     },
     description: {
       type: String,
@@ -22,7 +22,7 @@ const tipSchema = new Schema(
     },
     image: {
       type: String,
-      required: true
+      required: true,
     }
   },
     {

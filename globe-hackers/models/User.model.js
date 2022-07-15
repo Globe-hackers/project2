@@ -5,14 +5,25 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      // unique: true -> Ideally, should be unique, but its up to you
+      unique: [true, 'This username is already taken'],
+      required: true,
     },
-    password: String,
+    passwordHash: {
+      type: String,
+      required : [true, "Password is required"],
+    },
+    country: {
+      type: String,
+      required: [true, 'You need to tell us where you come from :)']
+    },
+    experience: {
+      enum: ["newbie", "intermediate", "advanced"],
+      required: [true, "please tell us what is your traveler's experience"],
+    },
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
+    {
     timestamps: true,
-  }
+    }
 );
 
 const User = model("User", userSchema);

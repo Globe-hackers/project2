@@ -39,7 +39,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
 
   bcryptjs.genSalt(saltRounds)
     .then(salt => {
-      return bcryptjs.hash(password, salt); // async op to create hash
+      return bcryptjs.hash(password, salt);
     })
     .then(hash => {
       const userDetails = {

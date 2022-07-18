@@ -1,12 +1,13 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-details">
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
+   <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{image}}" alt="Card image cap">
         <div class="card-body">
-            <h5 class="country">Country</h5>
-            <h5 class="city">City</h5>
-            <p class="description">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <p>Caegories : </p>
+            <h5 class="country">{{country}}</h5>
+            <h5 class="city">{{city}}</h5>
+            <p class="description">{{description}}</p>
+             {{#each categoriesArr}}
+                <option value="{{this._id}}">{{this.name}}</option>
+            {{/each}}
             <a href="#" class="btn btn-primary">Edit</a>
             <a href="#" class="btn btn-primary">Favourite</a>
             <a href="#" class="btn btn-primary">Delete</a>

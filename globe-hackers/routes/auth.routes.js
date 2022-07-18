@@ -128,10 +128,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 
 // 3- FUNCTIONALITY TO LOG OUT
-router.post('/logout', isLoggedIn, (req, res, next) => {
+router.post('/logout', (req, res, next) => {
   req.session.destroy(err => {
-    if (err) next(err);
-    res.redirect('/');
+    if (err) {
+      next(err);
+    }
+    res.redirect('/login');
   });
 });
 

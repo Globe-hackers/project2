@@ -24,11 +24,8 @@ const projectName = "globe-hackers";
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
-const index = require("./routes/index.routes");
-app.use("/", index);
-
-const authRoutes = require("./routes/auth.routes");
-app.use("/auth", authRoutes);
+app.use("/", require("./routes/index.routes"));
+app.use("/", require("./routes/auth.routes"));
 
 app.use("/tips", require("./routes/tip.routes"));
 

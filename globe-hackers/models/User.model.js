@@ -7,9 +7,9 @@ const userSchema = new Schema(
       unique: [true, 'This username is already taken'],
       required: [true, "Please provide a username"],
     },
-    passwordHash: {
+    password: {
       type: String,
-      required : [true, "Password is required"],
+      required: [true, "Password is required"],
     },
     country: {
       type: String,
@@ -21,9 +21,9 @@ const userSchema = new Schema(
       required: [true, "choose a level of experience as a traveler"],
     }
   },
-    {
+  {
     timestamps: true,
-    }
+  }
 );
 
 const User = model("User", userSchema);

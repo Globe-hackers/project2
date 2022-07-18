@@ -67,14 +67,13 @@ router.get("/:tipId/edit", (req, res, next) => {
 
 //Update a tip - POST
 router.post("/:tipId/edit", (req, res, next) => {
-  const tipId = req.params.tipId;
   const newDetails = {
     country: req.body.country,
     city: req.body.city,
     category: req.body.category,
     description: req.body.description,
   };
-  Tip.findByIdAndUpdate(tipId, newDetails)
+  Tip.findByIdAndUpdate(req.params.tipId, newDetails)
     .then( () => {
       res.redirect("/tips");
     })
@@ -83,5 +82,17 @@ router.post("/:tipId/edit", (req, res, next) => {
       next(error);
     })
 });
+
+//Delete - POST
+router.post("/:tipId/delete", (req, res, next) => {
+  Tip.findByIdAndRemove(req.params.tipId)
+    .then( () => {
+      res.redirect('/tips');
+    })
+    .catch( (error) => {
+      console.log("Error deleting tip from DB", error);
+      next(error);
+    })
+})
 
 module.exports = router;

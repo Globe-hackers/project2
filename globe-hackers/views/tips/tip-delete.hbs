@@ -1,0 +1,35 @@
+<h2>Edit Your tip</h2>
+
+<form action="/tips/{{_id}}/edit" method="POST">
+    <label> Country:
+        <input type="text" name="country" value="{{country}}" />
+    </label>
+
+    <label> City:
+        <input type="text" name="city" value="{{city}}" />
+    </label>
+
+    <label> Category:
+        <select name="category" id="category" multiple>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Leisure">Leisure</option>
+            <option value="Bar">Bar</option>
+            <option value="Museum">Museum</option>
+            <option value="Sport">Sport</option>
+            <option value="Sight-seeing">Sight-seeing</option>
+            <option value="Night">Night</option>
+        </select>
+    </label>
+
+    <label> Description:
+        <textarea name="description" cols="30" rows="4">
+        {{description}}
+    </textarea>
+    </label>
+
+    //Images
+
+    <form action="/tips/{{this._id}}/delete" method="POST">
+            <button>Delete this tip</button>
+        </form>
+</form>

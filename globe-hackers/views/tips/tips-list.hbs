@@ -10,6 +10,9 @@
             <p class="description">Description: {{this.description}}</p>
             <p class="category">Categories: {{category}}</p>
             <a href="/tips/tip/{{this._id}}" class="btn btn-primary">View details</a>
+            <form action="/tips/{{this._id}}/delete" method="POST">
+                <button>Delete</button>
+            </form>
         </div>
     </div>
 {{/each}}

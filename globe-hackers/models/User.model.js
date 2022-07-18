@@ -1,12 +1,11 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema(
   {
     username: {
       type: String,
       unique: [true, 'This username is already taken'],
-      required: true,
+      required: [true, "Please provide a username"],
     },
     password: {
       type: String,
@@ -14,13 +13,13 @@ const userSchema = new Schema(
     },
     country: {
       type: String,
-      required: [true, 'You need to tell us where you come from :)']
+      required: [true, 'You need to tell us where you come from :)'],
     },
     experience: {
       type: String,
       enum: ["newbie", "intermediate", "advanced"],
-      required: [true, "please tell us what is your traveler's experience"],
-    },
+      required: [true, "choose a level of experience as a traveler"],
+    }
   },
   {
     timestamps: true,

@@ -1,11 +1,25 @@
 const router = require("express").Router();
 const Tip = require("../models/Tip.model");
 
+//View list of all the tips
+router.get("/", (req, res, next) => {
+  Tip.find()
+    .then((tips) => {
+      const data = {
+        tipsArr: tips,
+      };
+      res.render("tips/tips-list", data);
+    })
+    .catch((error) => {
+      console.log("Error getting data from DB", error);
+      next(error);
+    })
+});
+
 // Details of a tip
 router.get("/tip/:tipId", (req, res, next) => {
   Tip.findById(req.params.tipId)
     .then((tip) => {
-      console.log(tip);
       res.render("tips/tip-details", tip)
     })
     .catch(error => {
@@ -28,14 +42,14 @@ router.post("/create", (req, res, next) => {
     description: req.body.description,
   };
   Tip.create(tipDetails)
-  .then( () => {
-    console.log("posting")
-    res.redirect("/"); //À changer pour la page de list des tips
-  })
-  .catch( (error) => {
-    console.log("Error creating tip in the DB", error);
-    next(error);
-  })
+    .then(() => {
+      console.log("posting")
+      res.redirect("/tips")
+    })
+    .catch((error) => {
+      console.log("Error creating tip in the DB", error);
+      next(error);
+    })
 });
 
 

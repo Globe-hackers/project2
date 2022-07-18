@@ -4,10 +4,8 @@
         <div class="card-body">
             <h5 class="country">{{country}}</h5>
             <h5 class="city">{{city}}</h5>
-            <p class="description">{{description}}</p>
-             {{#each categoriesArr}}
-                <option value="{{this._id}}">{{this.name}}</option>
-            {{/each}}
+            <p class="description">Description: {{description}}</p>
+            <p class="category">Categories: {{category}}</p>
             <a href="#" class="btn btn-primary">Edit</a>
             <a href="#" class="btn btn-primary">Favourite</a>
             <a href="#" class="btn btn-primary">Delete</a>

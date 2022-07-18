@@ -1,3 +1,25 @@
+.navbar-nav {
+  display: flex;
+  align-items: baseline;
+}
+
+.navbar-brand,
+.navbar-nav {
+  margin: 0 1rem 0;
+}
+
+#globe-icon {
+  width: 2rem;
+}
+
+.carousel-item img {
+  height: 80vh;
+}
+
+h1 {
+  color: #fff;
+}
+
 #login,
 #signup {
   height: 100vh;
@@ -9,9 +31,4 @@
 #form-btn {
   width: 100%;
   margin-top: 1rem;
-}
-
-.navbar-nav {
-  display: flex;
-  align-items: baseline;
 }

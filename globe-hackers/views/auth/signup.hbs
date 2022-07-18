@@ -1,25 +1,32 @@
-<h2>Sign Up</h2>
+<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="signup">
+   <h2>Sign Up</h2>
+   <form action="/signup" method="POST">
+      <div class="form-group">
+         <label for="username">Username</label>
+         <input type="text" name="username" class="form-control" id="username" required>
+      </div>
+      <div class="form-group">
+         <label for="password">Password</label>
+         <input type="password" name="password" class="form-control" id="password" required>
+      </div>
+      <div class="form-group">
+         <label class="country">Country</label>
+         <input type="text" name="country" class="form-control" id="country" required>
+      </div>
+      <div class="form-group">
+         <label for="experience">Experience</label>
+         <select class="form-control" name="experience" id="experience" required>
+            <option value="newbie">Newbie</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+         </select>
+      </div>
+      <button type="submit" class="btn btn-sm btn-outline-dark" id="form-btn">Submit</button>
+   </form>
 
-<form action="/signup" method="POST">
-   <label> Username
-      <input type="text" name="username" required>
-   </label>
-   <label> Password
-      <input type="password" name="password" required>
-   </label>
-   <label> Country
-      <input type="text" name="country" required>
-   </label>
-   <label for="experience">Experience</label>
-   <select name="experience" id="experience" required>
-      <option value="newbie">Newbie</option>
-      <option value="intermediate">Intermediate</option>
-      <option value="advanced">Advanced</option>
-   </select>
+   <p>Already have an account? <a href="/login">Log in</a></p>
 
-   <button type="submit">Submit</button>
-</form>
-
-{{#if errorMessage}}
-{{errorMessage}}
-{{/if}}
+   {{#if errorMessage}}
+   {{errorMessage}}
+   {{/if}}
+</section>

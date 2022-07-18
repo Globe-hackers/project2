@@ -1,12 +1,17 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#login,
+#signup {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-a {
-  color: #00b7ff;
+#form-btn {
+  width: 100%;
+  margin-top: 1rem;
 }
 
-h1 {
-  color: 15px;
+.navbar-nav {
+  display: flex;
+  align-items: baseline;
 }

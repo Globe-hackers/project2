@@ -1,13 +1,18 @@
-<form action="/login" method="POST">
-   <label> Username
-      <input type="text" name="username" required>
-   </label>
-   <label> Password
-      <input type="password" name="password" required>
-   </label>
-
-   <button type="submit">Submit</button>
-</form>
+<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="login">
+   <h2>Log In</h2>
+   <form action="/login" method="POST">
+      <div class="form-group">
+         <label for="username">Username</label>
+         <input type="text" name="username" class="form-control" id="username" required>
+      </div>
+      <div class="form-group">
+         <label for="password">Password</label>
+         <input type="password" name="password" class="form-control" id="password" required>
+      </div>
+      <button type="submit" class="btn btn-outline-dark btn-sm" id="form-btn">Submit</button>
+   </form>
+   <p>Don't have an account? <a href="/signup">Sign up</a></p>
+</section>
 
 {{#if errorMessage}}
 {{errorMessage}}

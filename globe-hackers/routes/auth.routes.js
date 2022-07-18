@@ -1,5 +1,4 @@
 const router = require("express").Router();
-
 const bcryptjs = require("bcrypt");
 const mongoose = require("mongoose");
 
@@ -14,7 +13,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 
 
-// 1- Functionality to sign up
+// 1- FUNCTIONALITY TO SIGN UP
 router.get("/signup", isLoggedOut, (req, res) => {
   res.render("auth/signup");
 });
@@ -23,9 +22,10 @@ router.get("/signup", isLoggedOut, (req, res) => {
 router.post("/signup", isLoggedOut, (req, res, next) => {
   const { username, password, country, experience } = req.body;
 
-  if (!username || !password) {
+  //Check if all fields are properly provided
+  if (!username || !password || !country || !experience) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide username and password.",
+      errorMessage: "Please provide username, password, country and travel experience.",
     });
   }
 
@@ -37,60 +37,19 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
     });
   }
 
-  bcryptjs.genSalt(saltRounds)
-    .then(salt => {
-      return bcryptjs.hash(password, salt);
-    })
-    .then(hash => {
-      const userDetails = {
-        username,
-        password
-      }
-      return User.create(userDetails)
-    })
-    .then(userFromDB => {
-      res.redirect("/") // TO BE CHANGED TO USER-PROFILE VIEW
-    })
-    .catch(error => {
-      if (error instanceof mongoose.Error.ValidationError) { // check if it is a mongoose validation error
-        res.status(400).render('auth/signup', { errorMessage: error.message });
-      } else if (error.code === 11000) { // check if mongoDB "unique" validation failed
-        const text = "Email needs to be unique. There's already a user with this email address.";
-        res.status(400).render('auth/signup', { errorMessage: text });
-      } else {
-        next(error);
-      }
-    });
-
-  if (!country) {
-    return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your country.",
-    });
-  }
-
-  if (!experience) {
-    return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your level of traveler's experience.",
-    });
-  }
-
-
-
-  // Search the database for a user with the username submitted in the form
+  // Check if username is already taken
   User.findOne({ username }).then((found) => {
-    // If the user is found, send the message username is taken
     if (found) {
       return res
         .status(400)
         .render("auth/signup", { errorMessage: "Username already taken." });
     }
 
-    // if user is not found, create a new user - start with hashing the password
+    // Create new user (by hashing the password) and save it in the DB
     return bcryptjs
       .genSalt(saltRounds)
       .then((salt) => bcryptjs.hash(password, salt))
       .then((hashedPassword) => {
-        // Create a user and save it in the database
         return User.create({
           username,
           password: hashedPassword,
@@ -105,9 +64,7 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
-          return res
-            .status(400)
-            .render("auth/signup", { errorMessage: error.message });
+          return res.status(400).render("auth/signup", { errorMessage: error.message });
         }
         if (error.code === 11000) {
           return res.status(400).render("auth/signup", {
@@ -115,16 +72,14 @@ router.post("/signup", isLoggedOut, (req, res, next) => {
               "Username need to be unique. The username you chose is already in use.",
           });
         }
-        return res
-          .status(500)
-          .render("auth/signup", { errorMessage: error.message });
+        return res.status(500).render("auth/signup", { errorMessage: error.message });
       });
   });
 });
 
 
 
-// Functionality to log in
+// 2- FUNCTIONALITY TO LOG IN
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
@@ -148,22 +103,20 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .then((user) => {
       if (!user) {
         return res.status(400).render("auth/login", {
-          errorMessage: "Wrong credentials.",
+          errorMessage: "Wrong credentials. Your username does not exist.",
         });
       }
 
       bcryptjs.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
-            errorMessage: "Wrong credentials.",
+            errorMessage: "Wrong credentials. Incorrect password",
           });
         }
         req.session.user = user;
-        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
         return res.redirect("/");
       });
     })
-
     .catch((err) => {
       // in this case we are sending the error handling to the error handling middleware that is defined in the error handling file
       // you can just as easily run the res.status that is commented out below
@@ -174,8 +127,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 
 
-// Functionality to logout
-router.post('/logout', (req, res, next) => {
+// 3- FUNCTIONALITY TO LOG OUT
+router.post('/logout', isLoggedIn, (req, res, next) => {
   req.session.destroy(err => {
     if (err) next(err);
     res.redirect('/');

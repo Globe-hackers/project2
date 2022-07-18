@@ -52,5 +52,36 @@ router.post("/create", (req, res, next) => {
     })
 });
 
+//Update a tip - GET
+router.get("/:tipId/edit", (req, res, next) => {
+  const tipId = req.params.tipId;
+  Tip.findById(tipId)
+    .then( (tipDetails) => {
+      res.render("tips/tip-update", tipDetails);
+    })
+    .catch( (error) => {
+      console.log("Error getting tip details from DB", error);
+      next(error);
+    })
+});
+
+//Update a tip - POST
+router.post("/:tipId/edit", (req, res, next) => {
+  const tipId = req.params.tipId;
+  const newDetails = {
+    country: req.body.country,
+    city: req.body.city,
+    category: req.body.category,
+    description: req.body.description,
+  };
+  Tip.findByIdAndUpdate(tipId, newDetails)
+    .then( () => {
+      res.redirect("/tips");
+    })
+    .catch( (error) => {
+      console.log("Error updating tip in DB", error);
+      next(error);
+    })
+});
 
 module.exports = router;

@@ -16,7 +16,16 @@
   height: 80vh;
 }
 
-h1 {
+#homepageCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-indicators {
+  height: 80vh;
+  display: flex;
+  align-items: center;
   color: #fff;
 }
 

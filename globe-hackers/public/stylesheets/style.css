@@ -30,7 +30,7 @@
 }
 
 #login,
-#signup, #tip-update, #tip-details, #profile {
+#signup, #tip-update, #tip-details, #profile, #tip-create {
   height: 100vh;
   display: flex;
   flex-direction: column;

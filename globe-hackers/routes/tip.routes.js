@@ -48,7 +48,6 @@ router.post("/create", fileUploader.single('story-image'), (req, res, next) => {
   console.log(req.file.path)
   Tip.create(tipDetails)
     .then(() => {
-      // console.log("posting");
       res.redirect("/tips")
     })
     .catch((error) => {

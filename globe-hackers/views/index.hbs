@@ -43,36 +43,17 @@
 <div class="container">
     <h2>Latest Stories</h2>
     <div class="row" id="latest-stories">
+        {{#each found}}
         <div class="col-md-6 col-lg-3">
-            {{#each found}}
+
             <img src="{{this.imageUrl}}" class="img-fluid img-thumbnail" alt="story picture">
             <p><strong>Storie 1</strong></p>
             <p>{{this.country}}</p>
             <p>{{this.city}}</p>
             <p>{{this.category}}</p>
             <p>{{this.description}}</p>
-            {{/each}}
+
         </div>
-        <div class="col-md-6 col-lg-3">
-            <img src="/images/stories/mountain1.jpg" class="img-fluid img-thumbnail" alt="story picture">
-            <p><strong>Storie 2</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis laboriosam dolore, consequuntur
-                numquam minima sunt labore, deserunt mollitia dicta quisquam officia? Rerum placeat sint veniam
-                molestias ex consequuntur totam est.</p>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <img src="/images/stories/beach5.jpg" class="img-fluid img-thumbnail" alt="story picture">
-            <p><strong>Storie 3</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis laboriosam dolore, consequuntur
-                numquam minima sunt labore, deserunt mollitia dicta quisquam officia? Rerum placeat sint veniam
-                molestias ex consequuntur totam est.</p>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <img src="/images/stories/jungle.jpg" class="img-fluid img-thumbnail" alt="story picture">
-            <p><strong>Storie 4</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis laboriosam dolore, consequuntur
-                numquam minima sunt labore, deserunt mollitia dicta quisquam officia? Rerum placeat sint veniam
-                molestias ex consequuntur totam est.</p>
-        </div>
+        {{/each}}
     </div>
 </div>

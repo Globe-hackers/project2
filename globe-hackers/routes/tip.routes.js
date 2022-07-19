@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Tip = require("../models/Tip.model");
+const User = require("../models/User.model");
 
 //View list of all the tips
 router.get("/", (req, res, next) => {
@@ -92,6 +93,22 @@ router.post("/:tipId/delete", (req, res, next) => {
     })
     .catch( (error) => {
       console.log("Error deleting tip from DB", error);
+      next(error);
+    })
+})
+
+// Add favourite - POST
+router.post("/:tipId/favourite", (req, res, next) => {
+  const newFavourite = {
+    favourites : req.params.tipId
+  }
+  User.findByIdAndUpdate(req.session.user, newFavourite, {new:true})
+    .then( (user) => {
+      console.log(user)
+      res.redirect('/profile');
+    })
+    .catch( (error) => {
+      console.log("Error adding tip as favourite", error);
       next(error);
     })
 })

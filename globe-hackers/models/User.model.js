@@ -19,7 +19,11 @@ const userSchema = new Schema(
       type: String,
       enum: ["newbie", "intermediate", "advanced"],
       required: [true, "choose a level of experience as a traveler"],
-    }
+    },
+    favourites: {
+      type: Schema.Types.ObjectId,
+      ref: "Tip",
+    },
   },
   {
     timestamps: true,

@@ -38,7 +38,9 @@
 #signup,
 #tip-update,
 #tip-details,
-#profile {
+#profile,
+#tip-create,
+#tips-list {
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -97,4 +99,8 @@
 
 .footer img {
   max-height: 4rem;
+}
+
+h1 {
+  text-align: center;
 }

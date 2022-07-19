@@ -45,14 +45,12 @@
     <div class="row" id="latest-stories">
         {{#each found}}
         <div class="col-md-6 col-lg-3">
-
             <img src="{{this.imageUrl}}" class="img-fluid img-thumbnail" alt="story picture">
             <p><strong>Storie 1</strong></p>
             <p>{{this.country}}</p>
             <p>{{this.city}}</p>
             <p>{{this.category}}</p>
-            <p>{{this.description}}</p>
-
+            <a href="/tips/tip/{{this._id}}">View details</a>
         </div>
         {{/each}}
     </div>

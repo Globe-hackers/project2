@@ -1,16 +1,17 @@
+<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-update">
 <h2>Edit Your tip</h2>
-
 <form action="/tips/{{_id}}/edit" method="POST">
-    <label> Country:
-        <input type="text" name="country" value="{{country}}" />
-    </label>
-
-    <label> City:
-        <input type="text" name="city" value="{{city}}" />
-    </label>
-
-    <label> Category:
-        <select name="category" id="category" multiple>
+    <div class="form-group">
+        <label> Country:</label>
+            <input type="text" name="country" value="{{country}}" class="form-control" id="country" />
+        </div>
+    <div class="form-group">
+        <label> City:</label>
+            <input type="text" name="city" value="{{city}}" class="form-control" id="city" />
+    </div>
+    <div class="form-group">
+        <label> Category:</label>
+        <select class="form-control" name="category" id="category" multiple>
             <option value="Restaurant">Restaurant</option>
             <option value="Leisure">Leisure</option>
             <option value="Bar">Bar</option>
@@ -19,15 +20,14 @@
             <option value="Sight-seeing">Sight-seeing</option>
             <option value="Night">Night</option>
         </select>
-    </label>
-
-    <label> Description:
-        <textarea name="description" cols="30" rows="4">
+    </div>
+    <div class="form-group">
+    <label> Description:</label>
+        <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description">
         {{description}}
     </textarea>
-    </label>
-
-    //Images
-
-    <button>Save changes</button>
+    </div>
+    {{!-- Images --}}
+    <button type="submit" class="btn btn-sm btn-outline-dark" id="form-btn">Save changes</button>
 </form>
+</section>

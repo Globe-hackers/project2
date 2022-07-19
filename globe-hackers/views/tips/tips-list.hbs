@@ -9,9 +9,11 @@
             <h5 class="city">{{this.city}}</h5>
             <p class="description">Description: {{this.description}}</p>
             <p class="category">Categories: {{category}}</p>
-            <a href="/tips/tip/{{this._id}}" class="btn btn-primary">View details</a>
-            <form action="/tips/{{this._id}}/delete" method="POST">
-                <button>Delete</button>
+            <form class="btn btn-primary" id="edit-button">
+                <a href="/tips/tip/{{this._id}}" class="btn btn-primary">View details</a>
+            </form>
+            <form class="btn btn-primary" action="/tips/{{this._id}}/delete" method="POST" id="delete-button">
+                <button class="btn btn-primary">Delete</button>
             </form>
         </div>
     </div>

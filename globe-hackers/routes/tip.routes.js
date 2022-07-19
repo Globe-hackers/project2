@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const Tip = require("../models/Tip.model");
+const fileUploader = require("../config/cloudinary.config");
+
 
 //View list of all the tips
 router.get("/", (req, res, next) => {
@@ -33,17 +35,18 @@ router.get("/create", (req, res, next) => {
 });
 
 // Create a tip - POST
-router.post("/create", (req, res, next) => {
-
+router.post("/create", fileUploader.single('story-image'), (req, res, next) => {
   const tipDetails = {
     country: req.body.country,
     city: req.body.city,
     category: req.body.category,
     description: req.body.description,
+    imageUrl: req.file.path
   };
+  console.log(req.file.path)
   Tip.create(tipDetails)
     .then(() => {
-      console.log("posting")
+      // console.log("posting");
       res.redirect("/tips")
     })
     .catch((error) => {
@@ -56,10 +59,10 @@ router.post("/create", (req, res, next) => {
 router.get("/:tipId/edit", (req, res, next) => {
   const tipId = req.params.tipId;
   Tip.findById(tipId)
-    .then( (tipDetails) => {
+    .then((tipDetails) => {
       res.render("tips/tip-update", tipDetails);
     })
-    .catch( (error) => {
+    .catch((error) => {
       console.log("Error getting tip details from DB", error);
       next(error);
     })
@@ -74,10 +77,10 @@ router.post("/:tipId/edit", (req, res, next) => {
     description: req.body.description,
   };
   Tip.findByIdAndUpdate(req.params.tipId, newDetails)
-    .then( () => {
+    .then(() => {
       res.redirect("/tips");
     })
-    .catch( (error) => {
+    .catch((error) => {
       console.log("Error updating tip in DB", error);
       next(error);
     })
@@ -86,10 +89,10 @@ router.post("/:tipId/edit", (req, res, next) => {
 //Delete - POST
 router.post("/:tipId/delete", (req, res, next) => {
   Tip.findByIdAndRemove(req.params.tipId)
-    .then( () => {
+    .then(() => {
       res.redirect('/tips');
     })
-    .catch( (error) => {
+    .catch((error) => {
       console.log("Error deleting tip from DB", error);
       next(error);
     })

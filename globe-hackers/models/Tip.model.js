@@ -4,7 +4,7 @@ const tipSchema = new Schema(
   {
     country: {
       type: String,
-      required : [true, "Please tell us in what country you found this hack"]
+      required: [true, "Please tell us in what country you found this hack"]
     },
     city: {
       type: String,
@@ -20,14 +20,14 @@ const tipSchema = new Schema(
       // minlength: 50,
       required: [true, "Please tell us more and use at least 50 characters. We want to know everything :)"],
     },
-    image: {
+    imageUrl: {
       type: String,
       // required: true,
     }
   },
-    {
+  {
     timestamps: true,
-    }
+  }
 );
 
 const Tip = model("Tip", tipSchema);

@@ -1,38 +1,42 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="delete">
 
-<h2>Edit Your tip</h2>
+    <h2>Edit Your tip</h2>
 
-<form action="/tips/{{_id}}/edit" method="POST">
-    <label> Country:
-        <input type="text" name="country" value="{{country}}" />
-    </label>
+    <form action="/tips/{{_id}}/edit" method="POST">
+        <label> Title:
+            <input type="text" name="title" value="{{title}}" />
+        </label>
 
-    <label> City:
-        <input type="text" name="city" value="{{city}}" />
-    </label>
+        <label> Country:
+            <input type="text" name="country" value="{{country}}" />
+        </label>
 
-    <label> Category:
-        <select name="category" id="category" multiple>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Leisure">Leisure</option>
-            <option value="Bar">Bar</option>
-            <option value="Museum">Museum</option>
-            <option value="Sport">Sport</option>
-            <option value="Sight-seeing">Sight-seeing</option>
-            <option value="Night">Night</option>
-        </select>
-    </label>
+        <label> City:
+            <input type="text" name="city" value="{{city}}" />
+        </label>
 
-    <label> Description:
-        <textarea name="description" cols="30" rows="4">
+        <label> Category:
+            <select name="category" id="category" multiple>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Bar">Bar</option>
+                <option value="Museum">Museum</option>
+                <option value="Sport">Sport</option>
+                <option value="Sight-seeing">Sight-seeing</option>
+                <option value="Night">Night</option>
+            </select>
+        </label>
+
+        <label> Description:
+            <textarea name="description" cols="30" rows="4">
         {{description}}
     </textarea>
-    </label>
+        </label>
 
-    //Images
+        {{!-- Images --}}
 
-    <form action="/tips/{{this._id}}/delete" method="POST">
+        <form action="/tips/{{this._id}}/delete" method="POST">
             <button>Delete this tip</button>
         </form>
-</form>
+    </form>
 </section>

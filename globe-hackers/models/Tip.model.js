@@ -2,13 +2,17 @@ const { Schema, model } = require("mongoose");
 
 const tipSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     country: {
       type: String,
-      required: [true, "Please tell us in what country you found this hack"]
+      required: [true, "Please tell us in which country takes place your travel experience"]
     },
     city: {
       type: String,
-      required: [true, "Please tell us in what city you found this hack"],
+      required: [true, "Please tell us in which city takes place your travel experience"],
     },
     category: {
       type: String,
@@ -22,7 +26,7 @@ const tipSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      // required: true,
+      required: true,
     }
   },
   {

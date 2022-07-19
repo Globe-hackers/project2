@@ -1,34 +1,37 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-update">
-<h2>Edit Your tip</h2>
-<form action="/tips/{{_id}}/edit" method="POST">
-    <div class="form-group">
-        <label> Country:</label>
-            <input type="text" name="country" value="{{country}}" class="form-control" id="country" />
+    <h2>Edit Your tip</h2>
+    <form action="/tips/{{_id}}/edit" method="POST">
+        <div class="form-group">
+            <label> Title:</label>
+            <input type="text" name="title" value="{{title}}" class="form-control" id="title" />
         </div>
-    <div class="form-group">
-        <label> City:</label>
+        <label> Country:</label>
+        <input type="text" name="country" value="{{country}}" class="form-control" id="country" />
+        </div>
+        <div class="form-group">
+            <label> City:</label>
             <input type="text" name="city" value="{{city}}" class="form-control" id="city" />
-    </div>
-    <div class="form-group">
-        <label> Category:</label>
-        <select class="form-control" name="category" id="category" multiple>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Leisure">Leisure</option>
-            <option value="Bar">Bar</option>
-            <option value="Museum">Museum</option>
-            <option value="Sport">Sport</option>
-            <option value="Sight-seeing">Sight-seeing</option>
-            <option value="Night">Night</option>
-        </select>
-    </div>
-    <div class="form-group">
-    <label> Description:</label>
-        <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description">
+        </div>
+        <div class="form-group">
+            <label> Category:</label>
+            <select class="form-control" name="category" id="category" multiple>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Leisure">Leisure</option>
+                <option value="Bar">Bar</option>
+                <option value="Museum">Museum</option>
+                <option value="Sport">Sport</option>
+                <option value="Sight-seeing">Sight-seeing</option>
+                <option value="Night">Night</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label> Description:</label>
+            <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description">
         {{description}}
     </textarea>
-    </label>
+            </label>
 
-    {{!-- Images --}}
+            {{!-- Images --}}
 
-    <button>Save changes</button>
-</form>
+            <button>Save changes</button>
+    </form>

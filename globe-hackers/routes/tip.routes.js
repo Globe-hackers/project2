@@ -39,13 +39,13 @@ router.get("/create", (req, res, next) => {
 // Create a tip - POST
 router.post("/create", fileUploader.single('story-image'), (req, res, next) => {
   const tipDetails = {
+    title: req.body.title,
     country: req.body.country,
     city: req.body.city,
     category: req.body.category,
     description: req.body.description,
     imageUrl: req.file.path
   };
-  console.log(req.file.path)
   Tip.create(tipDetails)
     .then(() => {
       res.redirect("/tips")
@@ -72,6 +72,7 @@ router.get("/:tipId/edit", (req, res, next) => {
 //Update a tip - POST
 router.post("/:tipId/edit", (req, res, next) => {
   const newDetails = {
+    title: req.body.title,
     country: req.body.country,
     city: req.body.city,
     category: req.body.category,
@@ -102,14 +103,14 @@ router.post("/:tipId/delete", (req, res, next) => {
 // Add favourite - POST
 router.post("/:tipId/favourite", (req, res, next) => {
   const newFavourite = {
-    favourites : req.params.tipId
+    favourites: req.params.tipId
   }
-  User.findByIdAndUpdate(req.session.user, newFavourite, {new:true})
-    .then( (user) => {
+  User.findByIdAndUpdate(req.session.user, newFavourite, { new: true })
+    .then((user) => {
       console.log(user)
       res.redirect('/profile');
     })
-    .catch( (error) => {
+    .catch((error) => {
       console.log("Error adding tip as favourite", error);
       next(error);
     })

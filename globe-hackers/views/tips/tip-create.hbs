@@ -1,36 +1,36 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-create">
-<h2>Create a tip</h2>
+  <h2>Create a tip</h2>
 
-<form action="/tips/create" method="POST">
-  <label> Country:
-    <input type="text" name="country" />
-  </label>
+  <form action="/tips/create" method="POST" enctype="multipart/form-data">
+    <label> Country:
+      <input type="text" name="country" />
+    </label>
 
-  <label> City:
-    <input type="text" name="city" />
-  </label>
+    <label> City:
+      <input type="text" name="city" />
+    </label>
 
-  <label> Category: 
-        <select name="category" id="category" multiple>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Leisure">Leisure</option>
-            <option value="Bar">Bar</option>
-            <option value="Museum">Museum</option>
-            <option value="Sport">Sport</option>
-            <option value="Sight-seeing">Sight-seeing</option>
-            <option value="Night">Night</option>
-        </select>
-  </label>
+    <label> Category:
+      <select name="category" id="category" multiple>
+        <option value="Restaurant">Restaurant</option>
+        <option value="Leisure">Leisure</option>
+        <option value="Bar">Bar</option>
+        <option value="Museum">Museum</option>
+        <option value="Sport">Sport</option>
+        <option value="Sight-seeing">Sight-seeing</option>
+        <option value="Night">Night</option>
+      </select>
+    </label>
 
-  <label> Description:
-    <input type="text" name="description" />
-  </label>
+    <label> Description:
+      <textarea name="description" id="" cols="30" rows="10"></textarea>
+    </label>
 
-  <label> Photos:
-    <input type="text" name="image" />
-  </label>
+    <label class="form-group"> Photos:
+      <input type="file" name="story-image" class="form-control-file" />
+    </label>
 
-  <button type="submit"> Create </button>
-</form>
+    <button type="submit"> Create </button>
+  </form>
 
 </section>

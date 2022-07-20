@@ -3,6 +3,8 @@ const Tip = require("../models/Tip.model");
 const User = require("../models/User.model");
 const fileUploader = require("../config/cloudinary.config");
 
+const isLoggedIn = require("../middleware/isLoggedIn");
+
 
 //View list of all the tips
 router.get("/", (req, res, next) => {
@@ -32,12 +34,12 @@ router.get("/tip/:tipId", (req, res, next) => {
 });
 
 // Create a tip - GET
-router.get("/create", (req, res, next) => {
+router.get("/create", isLoggedIn, (req, res, next) => {
   res.render("tips/tip-create");
 });
 
 // Create a tip - POST
-router.post("/create", fileUploader.single('story-image'), (req, res, next) => {
+router.post("/create", isLoggedIn, fileUploader.single('story-image'), (req, res, next) => {
   const tipDetails = {
     title: req.body.title,
     country: req.body.country,
@@ -57,7 +59,7 @@ router.post("/create", fileUploader.single('story-image'), (req, res, next) => {
 });
 
 //Update a tip - GET
-router.get("/:tipId/edit", (req, res, next) => {
+router.get("/:tipId/edit", isLoggedIn, (req, res, next) => {
   const tipId = req.params.tipId;
   Tip.findById(tipId)
     .then((tipDetails) => {
@@ -70,7 +72,7 @@ router.get("/:tipId/edit", (req, res, next) => {
 });
 
 //Update a tip - POST
-router.post("/:tipId/edit", (req, res, next) => {
+router.post("/:tipId/edit", isLoggedIn, (req, res, next) => {
   const newDetails = {
     title: req.body.title,
     country: req.body.country,
@@ -89,7 +91,7 @@ router.post("/:tipId/edit", (req, res, next) => {
 });
 
 //Delete - POST
-router.post("/:tipId/delete", (req, res, next) => {
+router.post("/:tipId/delete", isLoggedIn, (req, res, next) => {
   Tip.findByIdAndRemove(req.params.tipId)
     .then(() => {
       res.redirect('/tips');
@@ -101,7 +103,7 @@ router.post("/:tipId/delete", (req, res, next) => {
 })
 
 // Add favourite - POST
-router.post("/:tipId/favourite", (req, res, next) => {
+router.post("/:tipId/favourite", isLoggedIn, (req, res, next) => {
   const newFavourite = {
     favourites: req.params.tipId
   }

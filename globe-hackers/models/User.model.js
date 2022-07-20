@@ -20,10 +20,10 @@ const userSchema = new Schema(
       enum: ["newbie", "intermediate", "advanced"],
       required: [true, "choose a level of experience as a traveler"],
     },
-    favourites: {
+    favourites: [{
       type: Schema.Types.ObjectId,
       ref: "Tip",
-    },
+    }],
   },
   {
     timestamps: true,

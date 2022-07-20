@@ -20,10 +20,12 @@ require("./config")(app);
 
 const capitalized = require("./utils/capitalized");
 const projectName = "globe-hackers";
+const sessionUser = require("./middleware/userLoggedIn")
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
+app.use("/", sessionUser)
 app.use("/", require("./routes/index.routes"));
 app.use("/", require("./routes/auth.routes"));
 app.use("/tips", require("./routes/tip.routes"));

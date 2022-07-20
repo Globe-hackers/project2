@@ -5,15 +5,19 @@
         {{#if favourites}}
         {{#each favourites}}
         <div class="col-md-6 col-lg-3" id="card-area">
-        <div class="card">
-            <img class="card-img-top" src="{{this.imageUrl}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="country">{{this.country}}</h5>
-                <h5 class="city">{{this.city}}</h5>
-                <p class="description">Description: {{this.description}}</p>
-                <p class="category">Categories: {{this.category}}</p>
+            <div class="card">
+                <img class="card-img-top" src="{{this.imageUrl}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="title">{{this.title}}</h5>
+                    <h6 class="country">{{this.country}}</h6>
+                    <h6 class="city">{{this.city}}</h6>
+                    <p class="description">Description: {{this.description}}</p>
+                    <p class="category">Categories: {{this.category}}</p>
+                    <form class="btn btn-primary" id="edit-button">
+                        <a href="/tips/tip/{{this._id}}" class="btn btn-primary">View details</a>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
         {{/each}}
         {{/if}}

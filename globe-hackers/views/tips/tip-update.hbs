@@ -1,4 +1,4 @@
-<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-update">
+<section class="col-8 col-sm-6 col-md-6 col-lg-6 col-xl-8 container" id="tip-update">
     <h2>Edit Your tip</h2>
     <form action="/tips/{{_id}}/edit" method="POST">
         <div class="form-group">
@@ -30,9 +30,10 @@
         {{description}}
             </textarea>
             </label>
-
-            {{!-- Images --}}
-
-            <button class="btn btn-primary">Save changes</button>
+            <div class="form-group">
+                <label class="form-group"> Photos:</label>
+                <input type="file" name="story-image" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-outline-dark" id="form-btn">Save changes</button>
     </form>
-    </section>
+</section>

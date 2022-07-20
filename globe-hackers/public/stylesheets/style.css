@@ -52,7 +52,7 @@
   margin-top: 1rem;
 }
 
-#delete-button,
+/* #delete-button, */
 #favourite-button,
 #edit-button {
   --bs-btn-padding-x: 0.75rem;

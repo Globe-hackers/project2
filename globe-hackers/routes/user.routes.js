@@ -7,7 +7,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // View profile page - GET
 router.get("/profile", isLoggedIn, (req, res, next) => {
-    console.log(req.session.user)
     User.findById(req.session.user._id)
     .populate("favourites")
       .then((user) => {

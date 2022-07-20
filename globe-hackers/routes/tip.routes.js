@@ -25,7 +25,6 @@ router.get("/", (req, res, next) => {
 router.get("/tip/:tipId", (req, res, next) => {
   Tip.findById(req.params.tipId)
     .then((tip) => {
-      console.log(tip)
       res.render("tips/tip-details", tip)
     })
     .catch(error => {

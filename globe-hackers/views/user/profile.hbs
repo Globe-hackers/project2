@@ -1,15 +1,22 @@
-<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="profile">
+<div class="container-sm" id="tip-list">
     <h1>Welcome to your profile</h1>
     <h2>Favourite stories: </h2>
-    {{#if favourites}}
-    <div class="card" style="width: 22rem;">
-        <img class="card-img-top" src="{{favourites.imageUrl}}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="country">{{favourites.country}}</h5>
-            <h5 class="city">{{favourites.city}}</h5>
-            <p class="description">Description: {{favourites.description}}</p>
-            <p class="category">Categories: {{favourites.category}}</p>
+    <div class="row">
+        {{#if favourites}}
+        {{#each favourites}}
+        <div class="col-md-6 col-lg-3" id="card-area">
+        <div class="card">
+            <img class="card-img-top" src="{{this.imageUrl}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="country">{{this.country}}</h5>
+                <h5 class="city">{{this.city}}</h5>
+                <p class="description">Description: {{this.description}}</p>
+                <p class="category">Categories: {{this.category}}</p>
+            </div>
         </div>
+        </div>
+        {{/each}}
+        {{/if}}
     </div>
-    {{/if}}
+</div>
 </section>

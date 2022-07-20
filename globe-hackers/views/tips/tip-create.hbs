@@ -1,20 +1,20 @@
-<section class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-2 container-sm" id="tip-create">
+<section class="col-8 col-sm-6 col-md-6 col-lg-6 col-xl-8 container" id="tip-create">
   <h2>Share your story</h2>
   <form action="/tips/create" method="POST" enctype="multipart/form-data">
     <div class="form-group">
-    <label> Title:</label>
-      <input type="text" name="title" class="form-control" required/>
+      <label> Title:</label>
+      <input type="text" name="title" class="form-control" required />
     </div>
     <div class="form-group">
-    <label> Country:</label>
-      <input type="text" name="country" class="form-control" required/>
+      <label> Country:</label>
+      <input type="text" name="country" class="form-control" required />
     </div>
     <div class="form-group">
-    <label> City:</label>
-      <input type="text" name="city" class="form-control" required/>
+      <label> City:</label>
+      <input type="text" name="city" class="form-control" required />
     </div>
     <div class="form-group">
-    <label> Category:</label>
+      <label> Category:</label>
       <select name="category" id="category" class="form-control" multiple>
         <option value="Restaurant">Restaurant</option>
         <option value="Leisure">Leisure</option>
@@ -26,14 +26,14 @@
       </select>
     </div>
     <div class="form-group">
-    <label> Description:</label>
+      <label> Description:</label>
       <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
     </div>
     <div class="form-group">
-    <label class="form-group"> Photos:</label>
-      <input type="file" name="story-image" class="form-control" required/>
+      <label class="form-group"> Photos:</label>
+      <input type="file" name="story-image" class="form-control" required />
     </div>
-    <form class="btn btn-primary" id="delete-button">
+    <form class="btn btn-primary" id="form-btn">
       <button type="submit" class="btn btn-primary"> Create </button>
     </form>
   </form>

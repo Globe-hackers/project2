@@ -39,11 +39,21 @@
 #tip-update,
 #tip-details,
 #profile,
-#tip-create,
-#tips-list {
+#tip-create {
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+
+#tip-list h1 {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tip-list div {
   justify-content: center;
 }
 
@@ -54,7 +64,8 @@
 
 /* #delete-button, */
 #favourite-button,
-#edit-button,#delete-button {
+#edit-button,
+#delete-button {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
   --bs-btn-font-family: ;
@@ -89,8 +100,12 @@
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
+#card-area {
+  padding: 0;
+}
+
 .card {
-  margin : 2rem;
+  margin: 1rem;
 }
 
 .footer {

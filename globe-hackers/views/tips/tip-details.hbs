@@ -4,7 +4,6 @@
         <h2>{{this.title}}</h2>
         <h5 class="country">{{country}}</h5>
         <h6 class="city">{{city}}</h6>
-        <p class="description">Description: {{description}}</p>
         <p class="category">Categories: {{category}}</p>
         {{#if user}}
         <a href="/tips/{{this._id}}/edit" class="btn btn-sm btn-outline-dark" id="edit-button">Edit</a>
@@ -15,5 +14,6 @@
             <button class="btn btn-sm btn-outline-dark">Delete</button>
         </form>
         {{/if}}
+        <p class="description">Description: {{description}}</p>
     </div>
 </section>

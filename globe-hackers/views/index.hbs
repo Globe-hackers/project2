@@ -48,13 +48,11 @@
             <div class="card">
                 <img class="card-img-top" src="{{this.imageUrl}}" alt="story picture">
                 <div class="card-body">
-                    <p><strong>{{this.title}}</strong></p>
-                    <p>{{this.country}}</p>
-                    <p>{{this.city}}</p>
-                    <p>{{this.category}}</p>
-                    <form action="/tips/tip/{{this._id}}">
-                        <button class="btn btn-sm btn-outline-dark">View details</button>
-                    </form>
+                    <h5 class="title">{{this.title}}</h5>
+                    <h6 class="country">{{this.country}}</h6>
+                    <h6 class="city">{{this.city}}</h6>
+                    <p class="category">Categories: {{this.category}}</p>
+                    <a href="/tips/tip/{{this._id}}" class="btn btn-sm btn-outline-dark">View details</a>
                 </div>
             </div>
         </div>

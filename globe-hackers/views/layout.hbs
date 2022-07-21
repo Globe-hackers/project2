@@ -10,7 +10,7 @@
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <title>Insert title here</title>
   <link rel="stylesheet" href="/stylesheets/style.css" />
-  <link rel="icon" href="/images/planet-earth.ico"  type="image/x-icon">
+  <link rel="icon" href="/images/planet-earth.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -23,12 +23,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navexpand">
       <div class="navbar-nav" id="left">
-          <a class="nav-item nav-link" href="/tips">Stories</a>
-          <a class="nav-item nav-link" href="/tips/create">Share</a>
+        <a class="nav-item nav-link" href="/tips">Stories</a>
+        <a class="nav-item nav-link" href="/tips/create">Share</a>
       </div>
       <div class="navbar-nav">
-        {{!-- <a class="nav-item nav-link" href="/">Home</a> --}}
-        {{!-- <a class="nav-item nav-link" href="">Destinations</a> --}}
         {{#if user}}
         <a class="nav-item-right nav-link" href="/profile" id="right">Profile</a>
         <form action="/logout" method="POST" id="logout-btn">
@@ -39,7 +37,7 @@
         <a class="nav-item nav-link" href="/login">Login</a>
         {{/if}}
       </div>
-      
+
     </div>
   </nav>
 

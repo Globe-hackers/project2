@@ -150,3 +150,23 @@ h1 {
   margin-top: 7vh;
   margin-bottom: 15vh;
 }
+
+
+@media(max-width: 576px) {
+  .collapse {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #212529;
+    margin: 0;
+    padding-bottom: 10px;
+  }
+
+  .nav-item-right {
+    text-align: center;
+  }
+
+  .navbar-toggler {
+    margin-right: 20px;
+  }
+}

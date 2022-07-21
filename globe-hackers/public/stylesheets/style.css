@@ -46,10 +46,14 @@ body {
   text-align: left;
 }
 
-.carousel-item img {
+.footer p {
+  text-align: left;
+}
+
+/* .carousel-item img {
   height: 80vh;
   aspect-ratio: auto;
-}
+} */
 
 #homepageCarousel {
   display: flex;
@@ -85,7 +89,9 @@ h1 {
 #tip-details,
 #profile,
 #tip-create {
-  display: flex;
+  <<<<<<< HEAD=======
+  /* height: 700px; */
+  >>>>>>>e239b4debf95a8013c617628f73e39c052d22dab display: flex;
   flex-direction: column;
   justify-content: center;
 }
@@ -106,6 +112,10 @@ h1 {
 #tip-create {
   height: 90vh;
 }
+
+/* .container #tip-details {
+  margin-top: 50px;
+} */
 
 #tip-list h1 {
   height: 25vh;

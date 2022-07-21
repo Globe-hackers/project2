@@ -78,6 +78,7 @@ router.post("/:tipId/edit", isLoggedIn, (req, res, next) => {
     city: req.body.city,
     category: req.body.category,
     description: req.body.description,
+    imageUrl: req.body.image
   };
   Tip.findByIdAndUpdate(req.params.tipId, newDetails)
     .then(() => {

@@ -106,7 +106,7 @@ router.post("/:tipId/favourite", isLoggedIn, (req, res, next) => {
   const newFavourite = {
     favourites: req.params.tipId
   }
-  User.findByIdAndUpdate(req.session.user, {$push: newFavourite}, { new: true })
+  User.findByIdAndUpdate(req.session.user, { $push: newFavourite }, { new: true })
     .then((user) => {
       console.log(user)
       res.redirect('/profile');

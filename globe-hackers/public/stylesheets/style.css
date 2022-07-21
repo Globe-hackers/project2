@@ -1,4 +1,12 @@
+body {
+  position: relative;
+}
+
 /* Navigation bar */
+#nav {
+  height: 7vh;
+}
+
 .navbar-nav {
   display: flex;
   align-items: baseline;
@@ -18,19 +26,29 @@
 .footer {
   background-color: #212529;
   color: white;
-  display: flex;
-  justify-content: space-around;
   padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  /* height: 7vh; */
 }
 
 .footer img {
   max-height: 4rem;
+  justify-content: right;
 }
 
+.footer p {
+  text-align: left;
+}
 
-/* Carousel */
 .carousel-item img {
   height: 80vh;
+  aspect-ratio: auto;
 }
 
 #homepageCarousel {
@@ -55,11 +73,9 @@ h1 {
 }
 
 /* #latest-story img {
-  width: 25vw;
-  height: 25vh;
+  aspect-ratio: auto;
+  flex-shrink: 0;
 } */
-
-
 
 
 /* Views */
@@ -69,14 +85,30 @@ h1 {
 #tip-details,
 #profile,
 #tip-create {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+#tip-details img {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+#login,
+#signup {
+  height: 80vh;
+}
+
+#tip-update,
+#tip-create {
+  height: 90vh;
+}
+
 #tip-list h1 {
-  height: 30vh;
+  height: 25vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,4 +143,9 @@ h1 {
 
 .card {
   margin: 1rem;
+}
+
+.margins {
+  margin-top: 7vh;
+  margin-bottom: 15vh;
 }

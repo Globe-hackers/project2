@@ -1,4 +1,17 @@
+
+body {
+  position: relative;
+  /* border: 5px solid blue;
+  min-height: 100%; */
+  /* display: flex;
+  flex-direction: column; */
+}
+
 /* Navigation bar */
+#nav {
+  height: 7vh;
+}
+
 .navbar-nav {
   display: flex;
   align-items: baseline;
@@ -18,13 +31,24 @@
 .footer {
   background-color: #212529;
   color: white;
-  display: flex;
-  justify-content: space-around;
   padding: 1rem;
+  display:flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding-right: 5rem;
+  padding-left: 5rem;
+  /* height: 7vh; */
 }
 
 .footer img {
   max-height: 4rem;
+  justify-content: right;
+}
+
+.footer p {
+  text-align: left;
 }
 
 
@@ -69,11 +93,15 @@ h1 {
 #tip-details,
 #profile,
 #tip-create {
-  height: 100vh;
+  /* height: 700px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+/* .container #tip-details {
+  margin-top: 50px;
+} */
 
 #tip-list h1 {
   height: 30vh;
@@ -111,4 +139,9 @@ h1 {
 
 .card {
   margin: 1rem;
+}
+
+.margins {
+  margin-top: 7vh;
+  margin-bottom: 15vh;
 }

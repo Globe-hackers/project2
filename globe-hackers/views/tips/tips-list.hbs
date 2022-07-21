@@ -12,9 +12,11 @@
                     <p class="description">Description: {{this.description}}</p>
                     <p class="category">Categories: {{category}}</p>
                     <a href="/tips/tip/{{this._id}}" class="btn btn-sm btn-outline-dark">View details</a>
+                    {{#if user}}
                     <form action="/tips/{{this._id}}/delete" method="POST" id="delete-button">
                         <button class="btn btn-sm btn-outline-dark">Delete</button>
                     </form>
+                    {{/if}}
                 </div>
             </div>
         </div>

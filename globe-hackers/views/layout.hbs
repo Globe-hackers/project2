@@ -14,29 +14,32 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" id="nav">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="/">
       <img src="/images/globe-icon.png" class="d-inline-block align-top" alt="globe explorers icon" id="globe-icon">
       Globe Explorers</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navexpand">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navexpand">
-      <div class="navbar-nav align-items-center ">
-        <a class="nav-item nav-link" href="/">Home</a>
-        <a class="nav-item nav-link" href="">Destinations</a>
-        <a class="nav-item nav-link" href="/tips">Stories</a>
-        <a class="nav-item nav-link" href="/tips/create">Share</a>
+    <div class="collapse navbar-collapse" id="navexpand">
+      <div class="navbar-nav" id="left">
+          <a class="nav-item nav-link" href="/tips">Stories</a>
+          <a class="nav-item nav-link" href="/tips/create">Share</a>
+      </div>
+      <div class="navbar-nav">
+        {{!-- <a class="nav-item nav-link" href="/">Home</a> --}}
+        {{!-- <a class="nav-item nav-link" href="">Destinations</a> --}}
         {{#if user}}
-        <a class="nav-item nav-link" href="/profile">Profile</a>
+        <a class="nav-item-right nav-link" href="/profile" id="right">Profile</a>
         <form action="/logout" method="POST" id="logout-btn">
           <button class="btn btn-outline-secondary">Logout</button>
         </form>
         {{else}}
-        <a class="nav-item nav-link" href="/signup">Sign Up</a>
+        <a class="nav-item-right nav-link" href="/signup">Sign Up</a>
         <a class="nav-item nav-link" href="/login">Login</a>
         {{/if}}
       </div>
+      
     </div>
   </nav>
 <main class="margins">

@@ -8,22 +8,36 @@ body {
 }
 
 /* Navigation bar */
-#nav {
+.navbar {
   height: 7vh;
-}
-
-.navbar-nav {
   display: flex;
-  align-items: baseline;
 }
 
-.navbar-brand,
-.navbar-nav {
+/* .navbar-nav {
+  display: flex; 
+  align-items: baseline;
+} */
+
+.collapse {
+  display: flex;
+  justify-content: space-between;
   margin: 0 1rem 0;
 }
+/* .navbar-nav{
+  justify-content: end;
+  background-color: aquamarine;
+}
+.nav-item-right {
+  margin-left: auto;
+}
+
+#left{
+  margin-right: auto;
+} */
 
 #globe-icon {
   width: 2rem;
+  margin-left: 1rem;
 }
 
 

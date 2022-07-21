@@ -71,23 +71,22 @@ router.get("/:tipId/edit", isLoggedIn, (req, res, next) => {
 });
 
 //Update a tip - POST
-router.post("/:tipId/edit", isLoggedIn, (req, res, next) => {
-  const newDetails = {
-    title: req.body.title,
-    country: req.body.country,
-    city: req.body.city,
-    category: req.body.category,
-    description: req.body.description,
-    imageUrl: req.body.image
-  };
-  Tip.findByIdAndUpdate(req.params.tipId, newDetails)
-    .then(() => {
-      res.redirect("/tips");
-    })
-    .catch((error) => {
-      console.log("Error updating tip in DB", error);
-      next(error);
-    })
+router.post("/:tipId/edit", fileUploader.single("image"), (req, res,next) => {
+  const { tipId } = req.params;
+  const { title, country, city, category, description, existingImage } = req.body;
+ 
+  let imageUrl;
+  if (req.file) {
+    imageUrl = req.file.path;
+  } else {
+    imageUrl = existingImage;
+  }
+ console.log("image url is:")
+  console.log(imageUrl)
+
+  Tip.findByIdAndUpdate(tipId, { title, country, city, category, description, imageUrl }, { new: true })
+    .then(() => res.redirect(`/tips`))
+    .catch(error => console.log(`Error while updating your story: ${error}`));
 });
 
 //Delete - POST

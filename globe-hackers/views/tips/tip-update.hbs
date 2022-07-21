@@ -1,6 +1,6 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-6 col-xl-8 container" id="tip-update">
     <h2>Edit Your Story</h2>
-    <form action="/tips/{{_id}}/edit" method="POST">
+    <form action="/tips/{{_id}}/edit" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label> Title:</label>
             <input type="text" name="title" value="{{title}}" class="form-control" id="title" />
@@ -31,8 +31,10 @@
             </textarea>
             </label>
             <div class="form-group">
-                <label class="form-group"> Photos:</label>
-                <input type="file" name="image" class="form-control" required />
+                <label class="form-group"> Photos:
+                    <input type="file" name="image" class="form-control" required />
+                    <input type="text" name="existingImage" hidden value="{{imageUrl}}">
+                </label>
             </div>
             <button type="submit" class="btn btn-outline-dark" id="form-btn">Save changes</button>
     </form>

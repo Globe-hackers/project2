@@ -45,31 +45,19 @@
     <div class="row" id="latest-story">
         {{#each found}}
         <div class="col-md-6 col-lg-3">
-            <img src="{{this.imageUrl}}" class="img-fluid img-thumbnail" alt="story picture">
-            <p><strong>{{this.title}}</strong></p>
-            <p>{{this.country}}</p>
-            <p>{{this.city}}</p>
-            <p>{{this.category}}</p>
-            <a href="/tips/tip/{{this._id}}">View details</a>
-        </div>
-        {{/each}}
-    </div>
-</div>
-
-
-{{!-- <div class="container" id="latest-stories-area">
-    <h2>Latest Stories</h2>
-    <div class="row" id="latest-story">
-        {{#each found}}
-        <div class="card bg-dark text-white col-md-6 col-lg-3">
-            <img src="{{this.imageUrl}}" class="card-img" alt="story picture">
-            <div class="card-img-overlay">
-                <h5 class="card-title">{{this.title}}</h5>
-                <p class="card-text">{{this.country}}</p>
-                <p class="card-text">{{this.category}}</p>
-                <a class="card-text" href="/tips/tip/{{this._id}}">View details</a>
+            <div class="card">
+                <img class="card-img-top" src="{{this.imageUrl}}" alt="story picture">
+                <div class="card-body">
+                    <p><strong>{{this.title}}</strong></p>
+                    <p>{{this.country}}</p>
+                    <p>{{this.city}}</p>
+                    <p>{{this.category}}</p>
+                    <form action="/tips/tip/{{this._id}}">
+                        <button class="btn btn-sm btn-outline-dark">View details</button>
+                    </form>
+                </div>
             </div>
         </div>
         {{/each}}
     </div>
-</div> --}}
+</div>

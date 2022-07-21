@@ -22,7 +22,7 @@ const capitalized = require("./utils/capitalized");
 const projectName = "globe-hackers";
 const sessionUser = require("./middleware/userLoggedIn")
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalized(projectName)}`;
 
 // 👇 Start handling routes here
 app.use("/", sessionUser)

@@ -89,9 +89,7 @@ h1 {
 #tip-details,
 #profile,
 #tip-create {
-  <<<<<<< HEAD=======
-  /* height: 700px; */
-  >>>>>>>e239b4debf95a8013c617628f73e39c052d22dab display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
 }

@@ -1,19 +1,19 @@
+<img src="{{this.imageUrl}}" alt="story image" id="tip-details-img" />
 <section class="container" id="tip-details">
-    <img src="{{this.imageUrl}}" alt="story image" />
     <div class="blog-post">
         <h2>{{this.title}}</h2>
-            <h5 class="country">{{country}}</h5>
-                <h6 class="city">{{city}}</h6>
-                <p class="description">Description: {{description}}</p>
-                <p class="category">Categories: {{category}}</p>
-                {{#if user}}
-                <a href="/tips/{{this._id}}/edit" class="btn btn-sm btn-outline-dark" id="edit-button">Edit</a>
-                <form id="favourite-button" action="/tips/{{this._id}}/favourite" method="POST">
-                    <button href="" class="btn btn-sm btn-outline-dark">Favourite</button>
-                </form>
-                <form action="/tips/{{this._id}}/delete" method="POST" id="delete-button">
-                    <button class="btn btn-sm btn-outline-dark">Delete</button>
-                </form>
-                {{/if}}
+        <h5 class="country">{{country}}</h5>
+        <h6 class="city">{{city}}</h6>
+        <p class="description">Description: {{description}}</p>
+        <p class="category">Categories: {{category}}</p>
+        {{#if user}}
+        <a href="/tips/{{this._id}}/edit" class="btn btn-sm btn-outline-dark" id="edit-button">Edit</a>
+        <form id="favourite-button" action="/tips/{{this._id}}/favourite" method="POST">
+            <button href="" class="btn btn-sm btn-outline-dark">Favourite</button>
+        </form>
+        <form action="/tips/{{this._id}}/delete" method="POST" id="delete-button">
+            <button class="btn btn-sm btn-outline-dark">Delete</button>
+        </form>
+        {{/if}}
     </div>
 </section>

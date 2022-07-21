@@ -103,14 +103,14 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     .then((user) => {
       if (!user) {
         return res.status(400).render("auth/login", {
-          errorMessage: "Wrong credentials. Your username does not exist.",
+          errorMessage: "Wrong credentials.",
         });
       }
 
       bcryptjs.compare(password, user.password).then((isSamePassword) => {
         if (!isSamePassword) {
           return res.status(400).render("auth/login", {
-            errorMessage: "Wrong credentials. Incorrect password",
+            errorMessage: "Wrong credentials.",
           });
         }
         req.session.user = user;

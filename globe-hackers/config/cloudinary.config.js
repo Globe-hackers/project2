@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
     // cloudinary: cloudinary,
     cloudinary,
     params: {
-        allowed_formats: ['jpg', 'png', 'jpeg'],
+        allowed_formats: ['jpg', 'png', 'jpeg', 'gif', 'webp', 'bmp', 'dib', 'heic', 'heif', 'ico', 'tif', 'eps', 'ai', 'pdf', 'psd', 'indd', 'ind', 'indt', 'raw', 'svg', 'svgz', 'jp2', 'j2k', 'jpf', 'jpx', 'jpm'],
         folder: 'globe-hackers' // The name of the folder in cloudinary
         // resource_type: 'raw' => this is in case you want to upload other type of files, not just images
     }

@@ -21,7 +21,7 @@ const tipSchema = new Schema(
     },
     description: {
       type: String,
-      // minlength: 50,
+      minlength: 50,
       required: [true, "Please tell us more and use at least 50 characters. We want to know everything :)"],
     },
     imageUrl: {

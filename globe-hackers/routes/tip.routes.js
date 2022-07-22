@@ -82,7 +82,7 @@ router.post("/:tipId/edit", fileUploader.single("image"), (req, res,next) => {
     imageUrl = existingImage;
   }
  console.log("image url is:")
-  console.log(imageUrl)
+  console.log(req.file)
 
   Tip.findByIdAndUpdate(tipId, { title, country, city, category, description, imageUrl }, { new: true })
     .then(() => res.redirect(`/tips`))

@@ -3,15 +3,15 @@
     <form action="/tips/{{_id}}/edit" method="POST">
         <div class="form-group">
             <label> Title:</label>
-            <input type="text" name="title" value="{{title}}" class="form-control" id="title" />
+            <input type="text" name="title" value="{{title}}" class="form-control" id="title" required />
         </div>
         <div class="form-group">
             <label> Country:</label>
-            <input type="text" name="country" value="{{country}}" class="form-control" id="country" />
+            <input type="text" name="country" value="{{country}}" class="form-control" id="country" required />
         </div>
         <div class="form-group">
             <label> City:</label>
-            <input type="text" name="city" value="{{city}}" class="form-control" id="city" />
+            <input type="text" name="city" value="{{city}}" class="form-control" id="city" required />
         </div>
         <div class="form-group">
             <label> Category:</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="form-group">
             <label> Description:</label>
-            <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description">
+            <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description" required>
         {{description}}
             </textarea>
         </div>

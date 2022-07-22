@@ -7,16 +7,16 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // View profile page - GET
 router.get("/profile", isLoggedIn, (req, res, next) => {
-    User.findById(req.session.user._id)
+  User.findById(req.session.user._id)
     .populate("favourites")
-      .then((user) => {
-        console.log(user)
-        res.render("user/profile", user);
-      })
-      .catch((error) => {
-        console.log("Error loading profile information", error);
-        next(error);
-      })
-  });
+    .then((user) => {
+      console.log(user)
+      res.render("user/profile", user);
+    })
+    .catch((error) => {
+      console.log("Error loading profile information", error);
+      next(error);
+    })
+});
 
 module.exports = router;

@@ -39,6 +39,9 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 
 // Create a tip - POST
 router.post("/create", isLoggedIn, fileUploader.single('story-image'), (req, res, next) => {
+
+  console.log(req.body)
+
   const tipDetails = {
     title: req.body.title,
     country: req.body.country,
@@ -71,23 +74,24 @@ router.get("/:tipId/edit", isLoggedIn, (req, res, next) => {
 });
 
 //Update a tip - POST
-router.post("/:tipId/edit", fileUploader.single("image"), (req, res,next) => {
+router.post("/:tipId/edit", fileUploader.single("story-image"), (req, res, next) => {
   const { tipId } = req.params;
   const { title, country, city, category, description, existingImage } = req.body;
- 
+
   let imageUrl;
   if (req.file) {
     imageUrl = req.file.path;
   } else {
     imageUrl = existingImage;
   }
- console.log("image url is:")
+  console.log("image url is:")
   console.log(imageUrl)
 
   Tip.findByIdAndUpdate(tipId, { title, country, city, category, description, imageUrl }, { new: true })
     .then(() => res.redirect(`/tips`))
     .catch(error => console.log(`Error while updating your story: ${error}`));
 });
+
 
 //Delete - POST
 router.post("/:tipId/delete", isLoggedIn, (req, res, next) => {

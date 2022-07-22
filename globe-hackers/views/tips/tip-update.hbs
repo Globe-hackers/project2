@@ -1,17 +1,17 @@
 <section class="col-8 col-sm-6 col-md-6 col-lg-6 col-xl-8 container" id="tip-update">
     <h2>Edit Your Story</h2>
-    <form action="/tips/{{_id}}/edit" method="POST">
+    <form action="/tips/{{_id}}/edit" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label> Title:</label>
-            <input type="text" name="title" value="{{title}}" class="form-control" id="title" />
+            <input type="text" name="title" value="{{title}}" class="form-control" id="title" required />
         </div>
         <div class="form-group">
             <label> Country:</label>
-            <input type="text" name="country" value="{{country}}" class="form-control" id="country" />
+            <input type="text" name="country" value="{{country}}" class="form-control" id="country" required />
         </div>
         <div class="form-group">
             <label> City:</label>
-            <input type="text" name="city" value="{{city}}" class="form-control" id="city" />
+            <input type="text" name="city" value="{{city}}" class="form-control" id="city" required />
         </div>
         <div class="form-group">
             <label> Category:</label>
@@ -27,13 +27,13 @@
         </div>
         <div class="form-group">
             <label> Description:</label>
-            <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description">
+            <textarea type="text" name="description" cols="30" rows="4" class="form-control" id="description" required>
         {{description}}
             </textarea>
         </div>
         <div class="form-group">
             <label class="form-group"> Photos:</label>
-            <input type="file" name="image" class="form-control" required />
+            <input type="file" name="story-image" class="form-control" required />
         </div>
         <button type="submit" class="btn btn-outline-dark" id="form-btn">Save changes</button>
     </form>
